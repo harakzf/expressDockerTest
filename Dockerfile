@@ -14,5 +14,6 @@ COPY . .
 
 EXPOSE 3000
 
+# RUNとCMDの違い要調査
 # RUN npm start
-# CMD [ "npm start" ]
+CMD [ "node", "./bin/www" ]
