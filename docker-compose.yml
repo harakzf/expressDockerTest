@@ -17,7 +17,7 @@ services:
     build:
       context: ./    
     ports: 
-      - 49161:3000
+      - 49163:3000
     links:
       - postgresql
     container_name: nodeapp
