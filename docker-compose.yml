@@ -19,5 +19,5 @@ services:
     ports: 
       - 49163:3000
     links:
-      - postgresql
+      - postgres
     container_name: nodeapp

@@ -4,7 +4,7 @@ var router = express.Router();
 const pg = require('pg');
 const Sequelize = require('sequelize');
 // const sequel = new Sequelize(config.postgres.database, config.postgres.username, config.postgres.password, {dialect: 'postgres', pool: config.postgres.pool, logging: config.postgres.logging});
-const sequel = new Sequelize('postgres://postgres:postgres@postgresql/postgres', {logging: false});
+const sequel = new Sequelize('postgres://postgres:postgres@postgres/postgres', {logging: false});
 const carModel = sequel.import('../models/cars.js');
 
 /* GET home page. */
