@@ -1,37 +1,16 @@
 var express = require('express');
+const config = require('config');
 var router = express.Router();
 const pg = require('pg');
-
+const Sequelize = require('sequelize');
+// const sequel = new Sequelize(config.postgres.database, config.postgres.username, config.postgres.password, {dialect: 'postgres', pool: config.postgres.pool, logging: config.postgres.logging});
+const sequel = new Sequelize('postgres://postgres:postgres@postgresql/postgres', {logging: false});
+const carModel = sequel.import('../models/cars.js');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  // res.render('index', { title: 'Express' });
-
-  const pool = pg.Pool({
-    user: 'postgres',
-    password: 'postgres',
-    database: 'postgres',
-    host: 'postgres-test',
-    // host: '172.17.0.2',
-    // host: 'localhost',
-    port: 5432
-  });
-
-  const query = { text: 'SELECT * FROM cars' };
-
-  pool.connect(async (err, client) => {
-    if (err) {
-      console.log(err);
-    } else {
-      const resObj = await client.query(query);
-      // console.log(resObj.rows);
-      // console.log('DBアクセス成功。');
-      res.render('index', { title: 'Express', datas: resObj.rows });
-    }
-  })
-
-
-
+router.get('/', async function(req, res, next) {
+  const resObj = await carModel.findAll(); // DB検索
+  res.render('index', { title: 'Express', datas: resObj }); // レスポンス
 });
 
 module.exports = router;

@@ -5,18 +5,19 @@ services:
   postgres:
     build:
       context: ./psql
-      # dockerfile: Dockerfile
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
     container_name: postgres-test
-
     ports: 
       - 5432:5432
 
   nodeapp:
     build:
-      context: ./
-      # dockerfile: Dockerfile
-    container_name: nodeapp
-
-    # ホスト→コンテナへのポートフォワーディング設定：localhost:49161でアクセスすると、コンテナのポート3000に転送される
+      context: ./    
     ports: 
       - 49161:3000
+    links:
+      - postgresql
+    container_name: nodeapp

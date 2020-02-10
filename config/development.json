@@ -1,0 +1,19 @@
+{
+    "postgres": {
+        "username": "postgres",
+        "password": "postgres",
+        "host": "localhost",
+        "database": "postgres",
+        "dialect": "postgres",
+        "pool": {
+            "min": 0,
+            "max": 30,
+            "aquire": 30000,
+            "idle": 10000
+        },
+        "logging": false
+    },
+    "cookie": {
+        "secure": false
+    }
+}
