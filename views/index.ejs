@@ -7,6 +7,18 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
-    <p><%= datas %></p>
+    <table border="1">
+      <tr>
+        <th>name</th>
+        <th>maker</th>
+      </tr>
+      
+      <% for (var idx = 0; idx < datas.length; idx++) { %>
+      <tr>
+        <td><%= datas[idx].name %></td>
+        <td><%= datas[idx].maker %></td>
+      </tr>
+      <% } %>
+    </table>
   </body>
 </html>

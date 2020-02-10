@@ -23,9 +23,9 @@ router.get('/', function(req, res, next) {
       console.log(err);
     } else {
       const resObj = await client.query(query);
-      console.log(resObj.rows);
-      console.log('DBアクセス成功。');
-      res.render('index', { title: 'Express', datas: resObj.rows[0].name });
+      // console.log(resObj.rows);
+      // console.log('DBアクセス成功。');
+      res.render('index', { title: 'Express', datas: resObj.rows });
     }
   })
 
