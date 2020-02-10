@@ -8,6 +8,9 @@ services:
       # dockerfile: Dockerfile
     container_name: postgres-test
 
+    ports: 
+      - 5432:5432
+
   nodeapp:
     build:
       context: ./
