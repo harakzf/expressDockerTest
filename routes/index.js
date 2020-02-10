@@ -11,7 +11,8 @@ router.get('/', function(req, res, next) {
     user: 'postgres',
     password: 'postgres',
     database: 'postgres',
-    host: '172.17.0.2',
+    host: 'postgres-test',
+    // host: '172.17.0.2',
     // host: 'localhost',
     port: 5432
   });
