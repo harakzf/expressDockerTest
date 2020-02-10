@@ -2,3 +2,5 @@ CREATE TABLE CARS(
   name TEXT NOT NULL,
   maker TEXT NOT NULL
 );
+
+INSERT INTO cars VALUES ('prius', 'TOYOTA'), ('VOXY', 'TOYOTA');
